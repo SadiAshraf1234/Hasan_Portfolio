@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Hasan Mia - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #0a0a0a 0%, #0a0a1a 30%, #1a1a3d 60%, #1e40af 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 1px,
+                rgba(30,64,175,0.05) 1px,
+                rgba(30,64,175,0.05) 20px
+            );
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-100px) translateY(-100px); }
+            100% { transform: translateX(100px) translateY(100px); }
+        }
+
+        .profile-section {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #1e40af;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            box-shadow: 0 0 30px rgba(30,64,175,0.4);
+            background-image: url('https://i.imgur.com/YGGUMK0.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #93c5fd;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #ffffff;
+            background: rgba(30, 64, 175, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(30, 64, 175, 0.4);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 20px;
+            min-width: 120px;
+            background: rgba(30, 64, 175, 0.15);
+            border: 2px solid transparent;
+            border-radius: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link:nth-child(1) {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.4), rgba(30, 64, 175, 0.2));
+            border-color: rgba(30, 64, 175, 0.6);
+        }
+
+        .social-link:nth-child(1):hover {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.7), rgba(30, 64, 175, 0.4));
+            border-color: rgba(30, 64, 175, 0.9);
+            box-shadow: 0 15px 35px rgba(30, 64, 175, 0.4);
+        }
+
+        .social-link:nth-child(2) {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(59, 130, 246, 0.2));
+            border-color: rgba(59, 130, 246, 0.6);
+        }
+
+        .social-link:nth-child(2):hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.7), rgba(59, 130, 246, 0.4));
+            border-color: rgba(59, 130, 246, 0.9);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+        }
+
+        .social-link:nth-child(3) {
+            background: linear-gradient(135deg, rgba(147, 197, 253, 0.4), rgba(147, 197, 253, 0.2));
+            border-color: rgba(147, 197, 253, 0.6);
+        }
+
+        .social-link:nth-child(3):hover {
+            background: linear-gradient(135deg, rgba(147, 197, 253, 0.7), rgba(147, 197, 253, 0.4));
+            border-color: rgba(147, 197, 253, 0.9);
+            box-shadow: 0 15px 35px rgba(147, 197, 253, 0.4);
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30,64,175,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
+        }
+
+        .social-link:hover {
+            transform: translateY(-8px) scale(1.05);
+        }
+
+        .social-icon {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .social-link span:last-child {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation */
+        nav {
+            background: #0a0a0a;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(30, 64, 175, 0.4);
+            border-bottom: 1px solid rgba(30, 64, 175, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30,64,175,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .nav-link:hover {
+            background: rgba(30,64,175,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #2d2d2d;
+        }
+
+        section:nth-child(even) {
+            background: #0d0d0d;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            color: #1e40af;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6);
+        }
+
+        /* Summary */
+        .summary-content {
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e5e5e5;
+            line-height: 1.8;
+        }
+
+        /* Experience */
+        .experience-item {
+            background: #0a0a0a;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(30, 64, 175, 0.2);
+            border-left: 5px solid #1e40af;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #121233;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1e40af;
+        }
+
+        .experience-date {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .experience-company {
+            color: #e5e5e5;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .experience-description {
+            color: #e5e5e5;
+        }
+
+        .experience-description ul {
+            margin-left: 20px;
+        }
+
+        .experience-description li {
+            margin-bottom: 8px;
+        }
+
+        /* Education */
+        .education-item {
+            background: #0a0a0a;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(30, 64, 175, 0.2);
+            border-left: 5px solid #1e40af;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #121233;
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .education-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1e40af;
+        }
+
+        .education-date {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .education-institution {
+            color: #e5e5e5;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: #0a0a0a;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(30, 64, 175, 0.1);
+            border: 1px solid #121233;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.2);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #1e40af;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: #ffffff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Language Skills */
+        .language-item {
+            background: #0a0a0a;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(30, 64, 175, 0.1);
+            border: 1px solid #121233;
+            border-left: 5px solid #1e40af;
+        }
+
+        .language-item h4 {
+            color: #1e40af;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .language-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .skill-level {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: rgba(30, 64, 175, 0.1);
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .skill-level .level {
+            color: #1e40af;
+            font-weight: bold;
+        }
+
+        /* Projects & References */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-item {
+            background: #0a0a0a;
+            padding: 25px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(30, 64, 175, 0.1);
+            border: 1px solid #121233;
+            border-left: 5px solid #1e40af;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.2);
+        }
+
+        .project-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #1e40af;
+        }
+
+        .project-item p {
+            color: #e5e5e5;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a0a0a 0%, #121233 50%, #1e40af 100%);
+            padding: 40px 0;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #93c5fd;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(30,64,175,0.3);
+            transition: all 0.4s ease;
+            background: rgba(30,64,175,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30,64,175,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .footer-link:hover::before {
+            left: 100%;
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+            border-color: rgba(30,64,175,0.6);
+            background: rgba(30,64,175,0.3);
+            transform: translateY(-2px);
+        }
+
+        .footer-info {
+            color: #93c5fd;
+            margin-top: 20px;
+        }
+
+        .footer-info p {
+            margin: 5px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .social-links {
+                gap: 15px;
+                margin-top: 30px;
+            }
+
+            .social-link {
+                padding: 15px;
+                font-size: 0.8rem;
+                min-width: 100px;
+            }
+
+            .social-icon {
+                font-size: 1.5rem;
+            }
+
+            .nav-container {
+                gap: 20px;
+            }
+
+            .experience-header, .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-section">
+                <div class="profile-image"></div>
+                <h1>Md Hasan Mia</h1>
+                <p class="subtitle">Restaurant & Store Management Professional</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>hhhasanmahmud.bd@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>(+880) 1877660089</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>North Salna, Gazipur, Bangladesh</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🎂</span>
+                        <span>Born: 25/12/1998</span>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="mailto:hhhasanmahmud.bd@gmail.com" class="social-link" title="Email Contact">
+                        <span class="social-icon">📧</span>
+                        <span>Email</span>
+                    </a>
+                    <a href="tel:+8801877660089" class="social-link" title="Phone Contact">
+                        <span class="social-icon">📞</span>
+                        <span>Phone</span>
+                    </a>
+                    <a href="#" class="social-link" title="Social Media">
+                        <span class="social-icon">📱</span>
+                        <span>Social</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#summary" class="nav-link">Summary</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#languages" class="nav-link">Languages</a>
+                <a href="#skills" class="nav-link">Digital Skills</a>
+                <a href="#communication" class="nav-link">Communication</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="summary">
+        <div class="container">
+            <h2 class="section-title fade-in">Professional Summary</h2>
+            <div class="summary-content fade-in">
+                <p>Professional, experienced, motivated & enthusiastic staff with excellent customer service skills and strong communication abilities. Proven expertise in restaurant operations and store management with a passion for service excellence and team leadership. Experienced in high-pressure environments with ability to multi-task and maintain consistent, high-quality service.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title fade-in">Work Experience</h2>
+            
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Restaurant Waiter</div>
+                        <div class="experience-company">Hasan Restaurant, Dhaka</div>
+                    </div>
+                    <div class="experience-date">01/12/2021 – Current</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Excellent customer service skills by promptly taking orders, delivering food and beverages, and addressing any customer concerns or complaints</li>
+                        <li>Greeted customers and provided menu information to create a positive dining experience</li>
+                        <li>Explained menu descriptions, preparation methods, and portion sizes to assist in decision-making</li>
+                        <li>Managed difficult situations professionally by remaining calm under pressure</li>
+                        <li>Regularly checked on tables, catering to requests and actioning feedback for maximum guest satisfaction</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Store Manager</div>
+                        <div class="experience-company">Hasan Store, Gazipur</div>
+                    </div>
+                    <div class="experience-date">01/04/2019 – 10/2021</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Opened and closed store by counting cash drawers, making bank deposits and locking and unlocking entrances</li>
+                        <li>Managed inventory levels by ordering stock as needed, tracking sales trends, and adjusting orders accordingly</li>
+                        <li>Stocked and organized products in storage spaces and retail shelves</li>
+                        <li>Worked long hours (12 hours/day) ensuring smooth store operations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title fade-in">Education and Training</h2>
+            
+            <div class="education-item fade-in">
+                <div class="education-header">
+                    <div>
+                        <div class="education-title">Junior School Certificate</div>
+                        <div class="education-institution">Gazipur, Bangladesh</div>
+                    </div>
+                    <div class="education-date">October 2016</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="languages">
+        <div class="container">
+            <h2 class="section-title fade-in">Language Skills</h2>
+            
+            <div class="language-item fade-in">
+                <h4>Bengali (Mother Tongue)</h4>
+                <p style="color: #e5e5e5;">Native proficiency in all skills</p>
+            </div>
+
+            <div class="language-item fade-in">
+                <h4>English</h4>
+                <div class="language-skills">
+                    <div class="skill-level">
+                        <span>Listening</span>
+                        <span class="level">C2</span>
+                    </div>
+                    <div class="skill-level">
+                        <span>Reading</span>
+                        <span class="level">B2</span>
+                    </div>
+                    <div class="skill-level">
+                        <span>Writing</span>
+                        <span class="level">C1</span>
+                    </div>
+                    <div class="skill-level">
+                        <span>Speaking</span>
+                        <span class="level">A2</span>
+                    </div>
+                    <div class="skill-level">
+                        <span>Interaction</span>
+                        <span class="level">A2</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="language-item fade-in">
+                <h4>Hindi</h4>
+                <div class="language-skills">
+                    <div class="skill-level">
+                        <span>Listening</span>
+                        <span class="level">C2</span>
+                    </div>
+                    <div class="skill-level">
+                        <span>Reading</span>
+                        <span class="level">A1</span>
+                    </div>
+                    <div class="skill-level">
+                        <span>Speaking</span>
+                        <span class="level">C2</span>
+                    </div>
+                    <div class="skill-level">
+                        <span>Interaction</span>
+                        <span class="level">C2</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="language-item fade-in">
+                <h4>Urdu</h4>
+                <div class="language-skills">
+                    <div class="skill-level">
+                        <span>Listening</span>
+                        <span class="level">C2</span>
+                    </div>
+                    <div class="skill-level">
+                        <span>Reading</span>
+                        <span class="level">A1</span>
+                    </div>
+                    <div class="skill-level">
+                        <span>Speaking</span>
+                        <span class="level">C2</span>
+                    </div>
+                    <div class="skill-level">
+                        <span>Interaction</span>
+                        <span class="level">C2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title fade-in">Digital Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3>Social Media & Marketing</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Social Media Management</span>
+                        <span class="skill-tag">Content Marketing</span>
+                        <span class="skill-tag">SEO</span>
+                        <span class="skill-tag">Analytics Tools</span>
+                        <span class="skill-tag">Affiliate Marketing</span>
+                        <span class="skill-tag">Copywriting</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Content Creation</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">WordPress</span>
+                        <span class="skill-tag">Blogger</span>
+                        <span class="skill-tag">YouTube</span>
+                        <span class="skill-tag">Content Creator</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Platforms & Software</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Microsoft Office</span>
+                        <span class="skill-tag">POS Software</span>
+                        <span class="skill-tag">Facebook</span>
+                        <span class="skill-tag">Twitter</span>
+                        <span class="skill-tag">LinkedIn</span>
+                        <span class="skill-tag">Instagram</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Other Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Video Gaming</span>
+                        <span class="skill-tag">SEO-Rank</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="communication">
+        <div class="container">
+            <h2 class="section-title fade-in">Communication & Interpersonal Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3>Professional Qualities</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Professional</span>
+                        <span class="skill-tag">Experienced</span>
+                        <span class="skill-tag">Motivated</span>
+                        <span class="skill-tag">Enthusiastic</span>
+                        <span class="skill-tag">Highly Responsible</span>
+                        <span class="skill-tag">Reliable</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Personal Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Lively Personality</span>
+                        <span class="skill-tag">Positive Attitude</span>
+                        <span class="skill-tag">Passion for Service</span>
+                        <span class="skill-tag">Attention to Detail</span>
+                        <span class="skill-tag">Honesty & Integrity</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Communication & Leadership</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Strong Communication Skills</span>
+                        <span class="skill-tag">Leadership Qualities</span>
+                        <span class="skill-tag">Team Training & Mentoring</span>
+                        <span class="skill-tag">Multi-tasking Ability</span>
+                        <span class="skill-tag">Professional Team Building</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Service Excellence</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Consistent High-Quality Service</span>
+                        <span class="skill-tag">Customer Interaction</span>
+                        <span class="skill-tag">Point of Sale</span>
+                        <span class="skill-tag">Bar Service</span>
+                        <span class="skill-tag">Barista Skills</span>
+                        <span class="skill-tag">Table/Floor Service</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Management & Goals</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Target Achievement</span>
+                        <span class="skill-tag">Workplace Culture Influence</span>
+                        <span class="skill-tag">Restaurant Operations</span>
+                        <span class="skill-tag">High Turnover Management</span>
+                        <span class="skill-tag">Career Development Focus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-social">
+                    <a href="mailto:hhhasanmahmud.bd@gmail.com" class="footer-link">Email</a>
+                    <a href="tel:+8801877660089" class="footer-link">Phone</a>
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2025 Md Hasan Mia. All rights reserved.</p>
+                    <p>Restaurant & Store Management Professional</p>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Bangladeshi Nationality | Born: 25/12/1998</p>
+                    <p style="font-size: 0.8rem; margin-top: 5px;">Language Levels: A1-A2 Basic | B1-B2 Independent | C1-C2 Proficient</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.experience-item, .education-item, .project-item, .skill-category, .language-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 12px 35px rgba(30, 64, 175, 0.25)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '';
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.background = '';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.background = 'rgba(30,64,175,0.3)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
